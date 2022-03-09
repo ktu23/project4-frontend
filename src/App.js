@@ -10,6 +10,13 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+import Home from './components/listings/Home'
+import Listing from './components/listings/Listing'
+import ListingCreate from './components/listings/ListingCreate'
+import ListingEdit from './components/listings/ListingEdit'
+import Listings from './components/listings/Listings'
+import MyListings from './components/listings/MyListings'
+
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
@@ -19,6 +26,10 @@ const App = () => {
   const msgAlert = ({ heading, message, variant }) => {
     const id = uuid()
     setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant, id }]))
+  }
+
+  const deleteAlert = id => {
+    setMsgAlerts(msgAlerts => msgAlerts.filter(msg => msg.id !== id))
   }
 
   return (
@@ -31,6 +42,7 @@ const App = () => {
           variant={msgAlert.variant}
           message={msgAlert.message}
           id={msgAlert.id}
+          deleteAlert={deleteAlert}
         />
       ))}
       <main className='container'>
@@ -52,6 +64,14 @@ const App = () => {
             element={<ChangePassword msgAlert={msgAlert} user={user} /> }
           />
 
+          <Route path='/'
+            element={<Home />} />
+          <Route path='/listings' element={<Listings msgAlert={msgAlert} user={user} />} />
+          <Route path='/listings' element={<Listings msgAlert={msgAlert} user={user} />} />
+          <Route path='/mylistings' element={<MyListings msgAlert={msgAlert} user={user}/>} />
+          <Route path='/listings/:id' element={<Listing msgAlert={msgAlert} user={user} />} />
+          <Route path='/listings/create' element={<ListingCreate msgAlert={msgAlert} user={user} />} />
+          <Route path='/listings/:id/edit' element={<ListingEdit msgAlert={msgAlert} user={user} />} />
         </Routes>
       </main>
     </>

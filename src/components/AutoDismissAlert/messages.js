@@ -1,4 +1,4 @@
-export const signUpSuccess = 'Succesfully registered! You\'ve been signed in as well.'
+export const signUpSuccess = 'Successfully registered! You\'ve been signed in as well.'
 export const signUpFailure = 'Registration failed. Email may be taken, or passwords don\'t match.'
 export const signInSuccess = 'Welcome!'
 export const signInFailure = 'Failed to sign in. Check your email and password and try again.'
