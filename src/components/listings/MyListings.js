@@ -21,7 +21,7 @@ const MyListings = ({ user, msgAlert }) => {
     const fetchData = async () => {
       try {
         const res = await indexMyListings(user)
-        setListings(res.data.listings)
+        setListings(res.data.posts)
       } catch (error) {
         msgAlert({
           heading: 'Listings failed to load',

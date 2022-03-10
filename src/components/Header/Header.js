@@ -12,6 +12,9 @@ const authenticatedOptions = (
     <NavLink to='/mylistings' className='nav-link'>
 My Listings
     </NavLink>
+    <NavLink to='/listings' className='nav-link'>
+All Listings
+    </NavLink>
     <NavLink to='/listings/create' className='nav-link'>
 Make a Listing
     </NavLink>

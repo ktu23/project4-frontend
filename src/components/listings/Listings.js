@@ -21,10 +21,10 @@ const Listings = ({ user, msgAlert }) => {
     const fetchData = async () => {
       try {
         const res = await indexListings(user)
-        setListings(res.data.listings)
+        setListings(res.data.posts)
       } catch (error) {
         msgAlert({
-          heading: 'Listings failed to load',
+          heading: 'Listings List failed to load',
           message: error.message,
           variant: 'danger'
         })
@@ -45,7 +45,9 @@ const Listings = ({ user, msgAlert }) => {
   // Otherwise, display the listings
   const listingsList = listings.map(listing => (
     <li key={listing._id}>
-      <Link to={`/listings/${listing._id}`}>{listing.title}</Link>
+      <Link to={`/listings/${listing._id}`}>
+        {listing.title}
+      </Link>
     </li>
   ))
 

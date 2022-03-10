@@ -15,7 +15,7 @@ const ListingCreate = ({ user, msgAlert }) => {
 
     try {
       const res = await createListing(title, content, user)
-      setCreatedId(res.data.listing._id)
+      setCreatedId(res.data.post._id)
 
       msgAlert({
         heading: 'Listing Created',

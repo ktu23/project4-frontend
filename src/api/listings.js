@@ -2,9 +2,9 @@ import axios from 'axios'
 import apiUrl from '../apiConfig'
 
 export const createListing = (title, content, user) => {
-  return axios.listing(
-    `${apiUrl}/listings`,
-    { listing: { title, content } },
+  return axios.post(
+    `${apiUrl}/posts`,
+    { post: { title, content } },
     // Pass along the authorization which includes our user's token
     {
       headers: {
@@ -15,7 +15,7 @@ export const createListing = (title, content, user) => {
 }
 
 export const indexListings = (user) => {
-  return axios.get(`${apiUrl}/listings`,
+  return axios.get(`${apiUrl}/posts`,
     {
       headers: {
         Authorization: `Bearer ${user.token}`
@@ -24,7 +24,7 @@ export const indexListings = (user) => {
 }
 
 export const indexMyListings = (user) => {
-  return axios.get(`${apiUrl}/mylistings`, {
+  return axios.get(`${apiUrl}/myposts`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
@@ -32,7 +32,7 @@ export const indexMyListings = (user) => {
 }
 
 export const showListing = (id, user) => {
-  return axios.get(`${apiUrl}/listings/${id}/`, {
+  return axios.get(`${apiUrl}/posts/${id}/`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
@@ -40,7 +40,7 @@ export const showListing = (id, user) => {
 }
 
 export const deleteListing = (id, user) => {
-  return axios.delete(`${apiUrl}/listings/${id}`, {
+  return axios.delete(`${apiUrl}/posts/${id}`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
@@ -49,8 +49,8 @@ export const deleteListing = (id, user) => {
 
 export const updateListing = (id, title, content, user) => {
   return axios.patch(
-    `${apiUrl}/listings/${id}`,
-    { listing: { title, content } },
+    `${apiUrl}/posts/${id}`,
+    { post: { title, content } },
     {
       headers: {
         Authorization: `Bearer ${user.token}`
