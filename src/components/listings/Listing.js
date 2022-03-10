@@ -141,6 +141,12 @@ const Listing = ({ user, msgAlert }) => {
     try {
       await deleteListing(id, user)
       setDeleted(true)
+
+      msgAlert({
+        heading: 'Listing Deleted',
+        message: 'Deleted successfully',
+        variant: 'success'
+      })
     } catch (error) {
       msgAlert({
         heading: 'Failed to delete listing',
