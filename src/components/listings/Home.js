@@ -1,8 +1,20 @@
 import React from 'react'
+// import styled from 'styled-components'
 
-const Home = () => (
+// const Logo = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 70vh;
+//   // border: 2px solid black;
+// `
+
+const Home = () => {
   <h1> The most exclusive resource for top producing real estate agents. </h1>
-)
+  return (
+    <img src='https://ssl.cdn-redfin.com/photo/8/bigphoto/750/ML81845750_2.jpg' alt="House Image" />
+  )
+}
 
 export default Home
 
